@@ -1,0 +1,30 @@
+name: Configure Mastodon instance
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+env:
+  MASTODON_TOKEN: ${{ secrets.MASTODON_TOKEN }}
+
+jobs:
+  ansible:
+    runs-on: ubuntu-latest
+    name: ansible
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install `python`
+        run: sudo apt-get update && sudo apt-get install -y python3.10 python3-pip
+        shell: bash
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+        shell: bash
+
+      - name: Run `ansible`
+        run: ansible-playbook playbook/play.yaml
+        shell: bash
