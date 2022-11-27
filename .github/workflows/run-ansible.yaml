@@ -7,7 +7,8 @@ on:
   workflow_dispatch:
 
 env:
-  MASTODON_TOKEN: ${{ secrets.MASTODON_TOKEN }}
+  MASTODON_DOMAIN_BLOCK_TOKEN: ${{ secrets.MASTODON_DOMAIN_BLOCK_TOKEN }}
+  MASTODON_READ_ONLY_TOKEN: ${{ secrets.MASTODON_READ_ONLY_TOKEN }}
 
 jobs:
   ansible:
