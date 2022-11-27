@@ -1,1 +1,5 @@
-This action requires an API key with the `admin:read` scope
+API keys required:
+
+|Secret name|scope|
+|---|---|
+|MASTODON_READ_ONLY_KEY|admin:read|
