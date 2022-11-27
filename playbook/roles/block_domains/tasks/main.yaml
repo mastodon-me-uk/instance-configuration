@@ -1,0 +1,32 @@
+---
+- name: Block domains
+
+  loop: "{{ lookup('file', '../../../domain-blocks.yaml') | from_yaml }}"
+  ansible.builtin.uri:
+    url: "{{ instance_url }}/api/v1/admin/domain_blocks"
+    headers:
+      Content-Type: "application/json"
+      Authorization: "Bearer {{ lookup('ansible.builtin.env', 'MASTODON_TOKEN') }}"
+    method: POST
+    body_format: json
+    body: "{{ item }}"
+    status_code:
+      - 200
+      - 422
+
+- name: Retrieve blocked domains
+
+  ansible.builtin.uri:
+    url: "{{ instance_url }}/api/v1/admin/domain_blocks"
+    headers:
+      Content-Type: "application/json"
+      Authorization: "Bearer {{ lookup('ansible.builtin.env', 'MASTODON_TOKEN') }}"
+    method: GET
+    body_format: json
+    status_code:
+      - 200
+  register: response
+
+- name: Show blocked domains
+  ansible.builtin.debug:
+    var: response.json
