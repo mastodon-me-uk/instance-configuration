@@ -26,5 +26,5 @@ jobs:
         shell: bash
 
       - name: Run `ansible`
-        run: ansible-playbook playbook/play.yaml
+        run: ansible-playbook --extra-vars="env=production" playbook/play.yaml
         shell: bash
