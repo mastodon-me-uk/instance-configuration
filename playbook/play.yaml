@@ -3,6 +3,9 @@
   hosts: localhost
   connection: local
   gather_facts: false
+  vars_files:
+  - vars/{{ env }}/all.yaml
 
   roles:
     - role: measures
+    - role: block_domains
