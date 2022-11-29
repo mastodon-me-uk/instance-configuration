@@ -1,0 +1,16 @@
+---
+- name: Get `measures` data
+  ansible.builtin.uri:
+    url: "{{ instance_url }}/api/v1/admin/measures"
+    headers:
+      Content-Type: "application/json"
+      Authorization: "Bearer {{ lookup('ansible.builtin.env', 'MASTODON_TOKEN') }}"
+    method: POST
+    body_format: json
+    status_code:
+      - 200
+  register: response
+
+- name: Show measures
+  ansible.builtin.debug:
+    var: response

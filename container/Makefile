@@ -11,6 +11,7 @@ run:
 		--name ${PROJECT} \
 		--hostname ${PROJECT} \
 		--volume $(shell pwd)/../:/opt/${PROJECT} \
+		--network="host" \
 		--interactive \
 		--tty \
 		--rm \
