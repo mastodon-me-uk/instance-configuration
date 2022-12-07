@@ -1,4 +1,4 @@
-all: lint ansible keys
+all: lint ansible tokens
 
 ansible:
 	ansible-playbook --extra-vars="env=dev" playbook/play.yaml
@@ -6,5 +6,5 @@ ansible:
 lint:
 	ansible-lint
 
-keys:
+tokens:
 	python playbook/scripts/key_tracker.py

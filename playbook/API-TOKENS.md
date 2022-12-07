@@ -1,4 +1,4 @@
-API tokens required:
+All API tokens required for this playbook:
 
 |Secret name|scope|
 |---|---|
