@@ -9,4 +9,4 @@ API keys required:
 |Secret name|scope|
 |---|---|
 |MASTODON_READ_ONLY_TOKEN|admin:read|
-|MASTODON_DOMAIN_BLOCK_TOKEN|admin:write:blocks|
+|MASTODON_DOMAIN_BLOCK_TOKEN|admin:write:domain_blocks|
