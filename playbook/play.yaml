@@ -4,7 +4,8 @@
   connection: local
   gather_facts: false
   vars_files:
-  - vars/{{ env }}/all.yaml
+  - group_vars/{{ env }}/all.yaml
 
   roles:
     - role: measures
+    - role: domain_blocks
